@@ -1,0 +1,31 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "database:start",
+            "type": "shell",
+            "command": "docker-compose up database database-test",
+            "problemMatcher": []
+        },
+        {
+            "label": "database:migrate",
+            "type": "shell",
+            "command": "rake db:migrate",
+            "problemMatcher": []
+        },
+        {
+            "label": "database:seed",
+            "type": "shell",
+            "command": "rake db:purge db:migrate db:seed",
+            "problemMatcher": []
+        },
+        {
+            "label": "application:start",
+            "type": "shell",
+            "command": "rails s",
+            "problemMatcher": []
+        }
+    ]
+}
